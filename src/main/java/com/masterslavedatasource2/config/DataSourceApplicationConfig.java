@@ -20,13 +20,13 @@ import javax.sql.DataSource;
 public class DataSourceApplicationConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(@Qualifier("dataSource") DataSource dataSource) {
-        LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
-        emfb.setDataSource(dataSource);
-        emfb.setPackagesToScan("com.masterslavedatasource2");
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource);
+        em.setPackagesToScan("com.masterslavedatasource2");
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
-        emfb.setJpaVendorAdapter(jpaVendorAdapter);
+        em.setJpaVendorAdapter(jpaVendorAdapter);
 
-        return emfb;
+        return em;
     }
 
     @Bean
